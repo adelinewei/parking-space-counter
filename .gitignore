@@ -6,3 +6,16 @@ __pycache__/
 # Unit test / coverage reports
 .pytest_cache/
 .coverage
+
+# Virtual environment
+.venv
+
+# macOS
+.DS_Store
+
+# Generated files
+parking_space_position
+
+# TODO: figure out the credits 
+src/car_parking_img.png
+src/car_parking_video.mp4
