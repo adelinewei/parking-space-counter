@@ -7,7 +7,7 @@ test:
 
 flake8:
 	flake8 -v --exclude=*.pyc,__pycache__,.venv,.pytest_cache \
-		--count --max-line-length=150 --ignore=E226,E231
+		--count --max-line-length=150 --ignore=E226,E252,E231
 
 picker:
 	python src/parking_space_picker.py

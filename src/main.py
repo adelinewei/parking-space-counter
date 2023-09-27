@@ -8,7 +8,7 @@ from CarParkingCounterUtils import CarParkingCounterUtils as utils
 logger = logging.getLogger(__name__)
 
 
-def check_parking_space_availability(processed_img):
+def check_parking_space_availability(processed_img: type[np.ndarray]) -> None:
     global parking_spaces
     try:
         with open(PARKING_POSITION_FILE_PATH, 'rb') as f:
@@ -37,7 +37,7 @@ def check_parking_space_availability(processed_img):
     cv2.imshow('car_parking_img', car_parking_img)
 
 
-def process_image():
+def process_image() -> type[np.ndarray]:
     """
     Apply algorithms on original image.
     Algorithms are gray, gussian blur, adaptive threshold, median blur and dilate.

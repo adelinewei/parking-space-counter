@@ -1,4 +1,5 @@
 import cv2
+import numpy as np
 
 
 class CarParkingCounterUtils:
@@ -18,7 +19,8 @@ class CarParkingCounterUtils:
     BLACK_RCOLOR = (0, 0, 0)
 
     @staticmethod
-    def rectangle(img, coordinate, rcolor=LIMEGREEN_RCOLOR, thickness=2):
+    def rectangle(img: type[np.ndarray], coordinate: tuple[int, int],
+                  rcolor: tuple[int, int, int]=LIMEGREEN_RCOLOR, thickness: int=2) -> None:
         """
         A wrapper of cv2 rectangle for showing a fix-sized rectangle with width 105 and height 46.
 
@@ -32,7 +34,9 @@ class CarParkingCounterUtils:
         cv2.rectangle(img, (x, y), (x+CarParkingCounterUtils.RECTANGLE_WIDTH, y+CarParkingCounterUtils.RECTANGLE_HEIGHT), rcolor, thickness)
 
     @staticmethod
-    def putText(img, coordinate, text, offsets=(5,0,0,0), font=cv2.FONT_HERSHEY_SIMPLEX, font_scale=0.6, rcolor=LIMEGREEN_RCOLOR, thickness=2):
+    def putText(img: type[np.ndarray], coordinate: tuple[int, int], text: str,
+                offsets: tuple[int, int, int, int]=(5,0,0,0), font: int=cv2.FONT_HERSHEY_SIMPLEX,
+                font_scale: float=0.6, rcolor: tuple[int, int, int]=LIMEGREEN_RCOLOR, thickness: int=2) -> None:
         """
         A wrapper of cv2 rectangle and cv2 putText for showing text on colored rectangle.
         The default values of arguments are defined based on the most happening case.

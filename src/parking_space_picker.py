@@ -2,12 +2,13 @@ import cv2
 import logging
 import os
 import pickle
+from typing import Any
 from CarParkingCounterUtils import CarParkingCounterUtils as utils
 
 logger = logging.getLogger(__name__)
 
 
-def mouse_clicked_handler(event, x, y, flags, params):
+def mouse_clicked_handler(event:int, x:int, y:int, flags:int, params:Any) -> None:
     """
     Record clicks on the image and save to a file in binary format.
 
