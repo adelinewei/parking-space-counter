@@ -1,8 +1,11 @@
 import cv2
+import logging
 import numpy as np
 import os
 import pickle
 from CarParkingCounterUtils import CarParkingCounterUtils as utils
+
+logger = logging.getLogger(__name__)
 
 
 def check_parking_space_availability(processed_img):
@@ -11,7 +14,7 @@ def check_parking_space_availability(processed_img):
         with open(PARKING_POSITION_FILE_PATH, 'rb') as f:
             parking_spaces = pickle.load(f)
     except FileNotFoundError as err:
-        print(err)
+        logger.error(err)
         raise
 
     free_spaces = 0

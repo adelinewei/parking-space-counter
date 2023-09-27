@@ -1,7 +1,10 @@
 import cv2
+import logging
 import os
 import pickle
 from CarParkingCounterUtils import CarParkingCounterUtils as utils
+
+logger = logging.getLogger(__name__)
 
 
 def mouse_clicked_handler(event, x, y, flags, params):
@@ -28,7 +31,7 @@ def mouse_clicked_handler(event, x, y, flags, params):
         with open(PARKING_POSITION_FILE_PATH, 'wb') as f:
             pickle.dump(selected_positions, f)
     except FileNotFoundError as err:
-        print(err)
+        logger.error(err)
         raise
 
 
@@ -41,7 +44,7 @@ if __name__ == '__main__':
         with open(PARKING_POSITION_FILE_PATH, 'rb') as f:
             selected_positions = pickle.load(f)
     except FileNotFoundError as err:
-        print(err)
+        logger.error(err)
         selected_positions = []
 
     while True:
